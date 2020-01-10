@@ -180,19 +180,18 @@ int main(int argc, const char *argv[])
 		rangeBasis[e-energyMin] = basisCount; 
 	}
 
-	for (int i=0; i<=energyMax-energyMin;i++)
-		printf("%d \n", rangeBasis[i]);
-
 	char nAs[4];
 	sprintf(nAs,"%d",nA);
 	char nBs[4];
 	sprintf(nBs,"%d",nB);
 	char energyMaxs[4];
 	sprintf(energyMaxs,"%d",energyMax);
+	char problemTypes[4];
+	sprintf(problemTypes,"%c",problemType);
 
-	char filename1[1000];
-	filename1[0] = problemType;
+	char filename1[1000] = "./BasisData/";
 
+	strcpy(filename1,concat(filename1, problemTypes));
 	strcpy(filename1,concat(filename1, "_nA="));
 	strcpy(filename1,concat(filename1, nAs));
 	strcpy(filename1,concat(filename1, "_nB="));
@@ -200,10 +199,6 @@ int main(int argc, const char *argv[])
 	strcpy(filename1,concat(filename1, "_Emax="));
 	strcpy(filename1,concat(filename1, energyMaxs));
 	strcpy(filename1,concat(filename1, ".basis"));
-
-
-	printf("%s",filename1);
-
 
 	FILE *fptr1;
 	fptr1 = fopen(filename1,"w");
@@ -221,9 +216,9 @@ int main(int argc, const char *argv[])
 
 	fclose(fptr1);
 
-	char filename2[1000];
-	filename2[0] = problemType;
-
+	char filename2[1000] = "./BasisData/";
+	
+	strcpy(filename2,concat(filename2, problemTypes));
 	strcpy(filename2,concat(filename2, "_nA="));
 	strcpy(filename2,concat(filename2, nAs));
 	strcpy(filename2,concat(filename2, "_nB="));
