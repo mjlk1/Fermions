@@ -184,7 +184,7 @@ int main(int argc, const char *argv[])
 	sprintf(nAs,"%d",nA);
 	char nBs[4];
 	sprintf(nBs,"%d",nB);
-	char energyMaxs[4];
+	char energyMaxs[10];
 	sprintf(energyMaxs,"%d",energyMax);
 	char problemTypes[4];
 	sprintf(problemTypes,"%c",problemType);
